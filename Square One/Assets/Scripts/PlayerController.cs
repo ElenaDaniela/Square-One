@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D coll;
     private float moveInput;
-    private bool isGrounded;
+    private bool isGrounded1, isGrounded2;
     private float jumpTimeCounter;
     private bool isJumping;
     
     public float speed;
-    public Transform feetPos;
+    public Transform feetPos1, feetPos2;
     public float checkRadius;
     public LayerMask whatIsGround;
     public float jumpForce;
@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<Collider2D>();
+        Debug.Log("test");
     }
-    private void FixedUpdate()
+    private void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         
@@ -38,36 +38,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector2(1,1);
         }
-    }
-
-    private void Update()
-    {
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        
+        isGrounded1 = Physics2D.OverlapCircle(feetPos1.position, checkRadius, whatIsGround);
+        isGrounded2 = Physics2D.OverlapCircle(feetPos2.position, checkRadius, whatIsGround);
+        if ((isGrounded1 == true || isGrounded2 == true) && Input.GetKeyDown(KeyCode.Space))
         {
-            //isJumping = true;
-            //jumpTimeCounter = jumpTimer;
             rb.velocity = Vector2.up * jumpForce; 
         }
-        
-        /*if (Input.GetKey(KeyCode.Space) && isJumping == true)
-        {
-            if (jumpTimeCounter > 0)
-            {
-                rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                isJumping = false;
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                isJumping = false;
-                rb.velocity = Vector2.down * jumpForce;
-            }
-             
-        }*/
     }
 }
