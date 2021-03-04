@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caf3787a-468a-4fd3-89f9-5fb4be8ac551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Player2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Player2.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MindScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../IPJC-Proiect/KeepJumping/Assets/Scripts/CharacterMovementDana.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -41,6 +45,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Wall_script.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WallScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerSwitch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MindScript.cs" />
       </list>
     </option>
   </component>
@@ -91,7 +97,7 @@
       <workItem from="1607602541606" duration="7215000" />
       <workItem from="1610548460699" duration="2375000" />
       <workItem from="1614852565831" duration="214000" />
-      <workItem from="1614866781589" duration="2405000" />
+      <workItem from="1614866781589" duration="3752000" />
     </task>
     <servers />
   </component>
