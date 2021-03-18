@@ -13,14 +13,21 @@ public class MindScript : MonoBehaviour
         for (int i = 0; i < Players.Length; i++)
         {
             Debug.Log(Players[i].tag);
-            if(Players[i] != CurrentPlayer)
+            if (Players[i] != CurrentPlayer)
+            {
                 Players[i].GetComponent<PlayerController>().enabled = false;
+                Players[i].GetComponent<Rigidbody2D>().constraints =
+                    RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            }
+            
         }
     }
 
     public void changePlayer(GameObject player)
     {
         CurrentPlayer.GetComponent<PlayerController>().enabled = false;
+        CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
+            RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         CurrentPlayer = player;
     }
 }

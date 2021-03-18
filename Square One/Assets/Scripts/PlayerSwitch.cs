@@ -15,16 +15,19 @@ public class PlayerSwitch : MonoBehaviour
       {
          mind.changePlayer(Player1);
          Player1.GetComponent<PlayerController>().enabled = true;
+         Player1.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
       }
       if (Input.GetKeyDown(KeyCode.Alpha2))
       {
          mind.changePlayer(Player2);
          Player2.GetComponent<PlayerController>().enabled = true;
+         Player2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
       }
       if (Input.GetKeyDown(KeyCode.Alpha3))
       {
          mind.changePlayer(Player3);
          Player3.GetComponent<PlayerController>().enabled = true;
+         Player3.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
       }
    }
    /*void OnMouseDown()
