@@ -10,8 +10,9 @@ public class MindScript : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i <= Players.Length; i++)
+        for (int i = 0; i < Players.Length; i++)
         {
+            Debug.Log(Players[i].tag);
             if(Players[i] != CurrentPlayer)
                 Players[i].GetComponent<PlayerController>().enabled = false;
         }
