@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="caf3787a-468a-4fd3-89f9-5fb4be8ac551" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +96,7 @@
       <workItem from="1614852565831" duration="214000" />
       <workItem from="1614866781589" duration="3752000" />
       <workItem from="1616065847122" duration="5457000" />
-      <workItem from="1616593530824" duration="2469000" />
+      <workItem from="1616593530824" duration="5550000" />
     </task>
     <servers />
   </component>
