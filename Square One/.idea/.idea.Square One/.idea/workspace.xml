@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="caf3787a-468a-4fd3-89f9-5fb4be8ac551" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Square One/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MindScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MindScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSwitch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSwitch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +42,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Wall_script.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WallScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerSwitch.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MindScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -96,7 +96,8 @@
       <workItem from="1610548460699" duration="2375000" />
       <workItem from="1614852565831" duration="214000" />
       <workItem from="1614866781589" duration="3752000" />
-      <workItem from="1616065847122" duration="4658000" />
+      <workItem from="1616065847122" duration="5457000" />
+      <workItem from="1616593530824" duration="2469000" />
     </task>
     <servers />
   </component>
@@ -121,9 +122,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="431" y="145" key="search.everywhere.popup" timestamp="1607534350993">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1616595148679">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607534350993" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1616595148679" />
   </component>
 </project>
