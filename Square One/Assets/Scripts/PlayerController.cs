@@ -22,9 +22,10 @@ public class PlayerController : MonoBehaviour
     public Transform feetPos1, feetPos2;
     public float checkRadius;
     [SerializeField] LayerMask whatIsGround;
-    public float jumpForce;
     [SerializeField] int extraJumps = 0;
-    
+    [Range(1, 10)] 
+    public float jumpForce;
+
     [Header("Animator")]
     public Animator animator;
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTime;
     [SerializeField] private bool canWJ;
     
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             jumpCount = 0;
-            jumpCooldown = Time.time + 0.2f;
+            jumpCooldown = Time.time + 0.01f;
         }else if (Time.time < jumpCooldown && extraJumps > 0)
         {
             isGrounded = true;
