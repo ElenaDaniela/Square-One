@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     public float speed;
     private bool isFacingRight = true;
+    public ParticleSystem dust;
     
     [Header("Jump")]
     private bool isGrounded1, isGrounded2, isGrounded;
@@ -47,7 +48,12 @@ public class PlayerController : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         
         animator.SetFloat("Speed", Mathf.Abs(moveInput*speed));
+
         
+        if (isWallSliding)
+        {
+            animator.SetFloat("Speed", 0f);
+        }
         
         if (Input.GetButtonDown("Jump"))
         {
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
             {
                 isWallSliding = true;
                 jumpTime = Time.time + wallJumpTime;
+                PlayDust();
             }else if (jumpTime < Time.time)
             {
                 isWallSliding = false;
@@ -128,5 +135,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+    
+    void PlayDust()
+    {
+        dust.Play();
     }
 }
