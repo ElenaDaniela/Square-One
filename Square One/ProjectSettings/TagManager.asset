@@ -8,6 +8,7 @@ TagManager:
   - Default
   - Blue
   - Yellow
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Ground
   - Player
   - Walls
-  - 
+  - BG
   - 
   - 
   - 

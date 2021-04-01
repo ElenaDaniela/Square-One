@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="BetterJump.cs" t="Include" />
+          <e p="GrabController.cs" t="Include" />
           <e p="MindScript.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerSwitch.cs" t="Include" />
