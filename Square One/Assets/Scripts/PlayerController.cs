@@ -17,9 +17,10 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dust;
     
     [Header("Jump")]
-    private bool isGrounded1, isGrounded2, isGrounded;
+    private bool isGrounded1, isGrounded2;
+    public bool isGrounded;
     private int jumpCount = 0;
-    private float jumpCooldown;
+    //private float jumpCooldown;
     public Transform feetPos1, feetPos2;
     public float checkRadius;
     [SerializeField] LayerMask whatIsGround;
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D WallCheckHit;
     private float jumpTime;
     [SerializeField] private bool canWJ;
+    private float lastDirection = 0; //folosit pentru a nu sari pe acelasi perete de 2 ori la rand
+    
     
     private void Awake()
     {
@@ -83,13 +86,13 @@ public class PlayerController : MonoBehaviour
                 {
                     WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance,
                         whatIsGround);
-                    //Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
+                    Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
                 }
                 else
                 {
                     WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance,
                         whatIsGround);
-                    //Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
+                    Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
                 }
                 
             if (WallCheckHit && !isGrounded && moveInput != 0)
@@ -112,11 +115,16 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded || jumpCount < extraJumps || isWallSliding)
-        {    
+        if (isGrounded || jumpCount < extraJumps || (isWallSliding && lastDirection != GetComponent<Transform>().localScale.x))
+        {
             rb.velocity = Vector2.up * jumpForce;
+            
             jumpCount++;
         }
+        if(isWallSliding)
+            lastDirection = GetComponent<Transform>().localScale.x;
+        if (isGrounded)
+            lastDirection = 0;
     }
     void CheckGround()
     {
@@ -126,8 +134,9 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             jumpCount = 0;
-            jumpCooldown = Time.time + 0.01f;
-        }else if (Time.time < jumpCooldown && extraJumps > 0)
+           // jumpCooldown = Time.time + 0.01f;
+        }
+        else if (extraJumps > jumpCount)
         {
             isGrounded = true;
         }

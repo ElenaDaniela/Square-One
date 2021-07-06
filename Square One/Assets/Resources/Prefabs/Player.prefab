@@ -153,8 +153,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0.26}
-  m_Size: {x: 0.78, y: 0.43}
+  m_Offset: {x: 0.12, y: 0.17}
+  m_Size: {x: 0.69, y: 0.24}
   m_Direction: 1
 --- !u!61 &4426260263428779525
 BoxCollider2D:
@@ -195,15 +195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  dust: {fileID: 0}
   feetPos1: {fileID: 4426260264074749560}
   feetPos2: {fileID: 4426260263358575963}
   checkRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  extraJumps: 0
   jumpForce: 21
-  jumpTimer: 0.5
   animator: {fileID: 4426260263428779522}
+  wallJumpTime: 0.2
+  wallSlideSpeed: 0.3
+  wallDistance: 0.5
+  canWJ: 0
 --- !u!95 &4426260263428779522
 Animator:
   serializedVersion: 3

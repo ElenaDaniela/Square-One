@@ -7,6 +7,9 @@ public class MindScript : MonoBehaviour
 {
     public GameObject[] Players;
     [SerializeField] GameObject CurrentPlayer;
+    
+    
+    
 
     private void Start()
     {
@@ -16,8 +19,13 @@ public class MindScript : MonoBehaviour
             if (Players[i] != CurrentPlayer)
             {
                 Players[i].GetComponent<PlayerController>().enabled = false;
-                Players[i].GetComponent<Rigidbody2D>().constraints =
-                    RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                if (Players[i].GetComponent<PlayerController>().isGrounded == true)
+                    Players[i].GetComponent<Rigidbody2D>().constraints =
+                        RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                else
+                    Players[i].GetComponent<Rigidbody2D>().constraints =
+                        RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                
             }
             
         }
@@ -28,6 +36,12 @@ public class MindScript : MonoBehaviour
         CurrentPlayer.GetComponent<PlayerController>().enabled = false;
         CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
             RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        if (CurrentPlayer.GetComponent<PlayerController>().isGrounded == true)
+            CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
+                RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        else
+            CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
+                RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         CurrentPlayer = player;
     }
 }
