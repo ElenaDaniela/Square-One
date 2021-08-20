@@ -17,15 +17,17 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dust;
     
     [Header("Jump")]
-    private bool isGrounded1, isGrounded2;
+    private bool isGrounded1, isGrounded2, isHanging;
     public bool isGrounded;
     private int jumpCount = 0;
     //private float jumpCooldown;
-    public Transform feetPos1, feetPos2;
+    public float fallMulti = 2.5f;
+
+    public Transform feetPos1, feetPos2, nosePos; // folosite pentru a detecta daca caracterul este pe pamant
     public float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsGround; // lista cu ce este considerat "pamant"
     [SerializeField] int extraJumps = 0;
-    [Range(1, 10)] 
+    [Range(1, 30)] 
     public float jumpForce;
 
     [Header("Animator")]
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0f);
         }
-        
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded || jumpCount < extraJumps || (isWallSliding && lastDirection != GetComponent<Transform>().localScale.x))
         {
+        
             rb.velocity = Vector2.up * jumpForce;
             
             jumpCount++;
@@ -129,8 +132,9 @@ public class PlayerController : MonoBehaviour
     void CheckGround()
     {
         isGrounded1 = Physics2D.OverlapCircle(feetPos1.position, checkRadius, whatIsGround);
-        isGrounded2 = Physics2D.OverlapCircle(feetPos2.position, checkRadius, whatIsGround);
-        if (isGrounded1 == true || isGrounded2 == true)
+        isGrounded2 = Physics2D.OverlapCircle(feetPos2.position, checkRadius, whatIsGround); 
+        isHanging = Physics2D.OverlapCircle(nosePos.position, checkRadius, whatIsGround);
+        if (isGrounded1 == true || isGrounded2 == true || isHanging)
         {
             isGrounded = true;
             jumpCount = 0;

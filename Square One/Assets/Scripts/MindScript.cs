@@ -21,7 +21,7 @@ public class MindScript : MonoBehaviour
                 Players[i].GetComponent<PlayerController>().enabled = false;
                 if (Players[i].GetComponent<PlayerController>().isGrounded == true)
                     Players[i].GetComponent<Rigidbody2D>().constraints =
-                        RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                        RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 else
                     Players[i].GetComponent<Rigidbody2D>().constraints =
                         RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -36,12 +36,7 @@ public class MindScript : MonoBehaviour
         CurrentPlayer.GetComponent<PlayerController>().enabled = false;
         CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
             RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        if (CurrentPlayer.GetComponent<PlayerController>().isGrounded == true)
-            CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
-                RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        else
-            CurrentPlayer.GetComponent<Rigidbody2D>().constraints =
-                RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        CurrentPlayer.GetComponent<Animator>().SetFloat("Speed", 0f);
         CurrentPlayer = player;
     }
 }
