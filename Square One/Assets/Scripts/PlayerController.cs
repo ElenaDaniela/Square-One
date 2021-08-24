@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     private int jumpCount = 0;
     //private float jumpCooldown;
-    public float fallMulti = 2.5f;
 
     public Transform feetPos1, feetPos2, nosePos; // folosite pentru a detecta daca caracterul este pe pamant
     public float checkRadius;
@@ -34,16 +33,16 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     [Header("Wall Jump")] 
-    public float wallJumpTime = 0.2f;
+    public float wallJumpTime = 0.1f;
     public float wallSlideSpeed = 0.3f;
     public float wallDistance = 0.5f;
     private bool isWallSliding = false;
     private RaycastHit2D WallCheckHit;
     private float jumpTime;
     [SerializeField] private bool canWJ;
-    private float lastDirection = 0; //folosit pentru a nu sari pe acelasi perete de 2 ori la rand
-    
-    
+    private float lastDirection = 0, currentDirection = 0; //folosit pentru a nu sari pe acelasi perete de 2 ori la rand
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -85,18 +84,35 @@ public class PlayerController : MonoBehaviour
         if (canWJ)
         {
             if (isFacingRight)
+            {
+                WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance,
+                    whatIsGround);
+                if (WallCheckHit && !isGrounded)
                 {
-                    WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance,
-                        whatIsGround);
-                    Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.blue);
-                }
-                else
-                {
-                    WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance,
-                        whatIsGround);
-                    Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.blue);
+                    currentDirection = 1; // dreapta
                 }
                 
+                if (isGrounded)
+                {
+                    currentDirection = 0;
+                }
+                //Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.magenta);
+            }
+            else
+            {
+                WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance,
+                    whatIsGround);
+                if (WallCheckHit && !isGrounded)
+                {
+                    currentDirection = -1; // stanga
+                }
+                if (isGrounded)
+                {
+                    currentDirection = 0;
+                }
+                
+                //Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.magenta);
+            }
             if (WallCheckHit && !isGrounded && moveInput != 0)
             {
                 isWallSliding = true;
@@ -117,17 +133,14 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded || jumpCount < extraJumps || (isWallSliding && lastDirection != GetComponent<Transform>().localScale.x))
+        if (isGrounded || jumpCount < extraJumps || (isWallSliding && lastDirection != currentDirection))
         {
-        
+            lastDirection = currentDirection;
             rb.velocity = Vector2.up * jumpForce;
             
             jumpCount++;
         }
-        if(isWallSliding)
-            lastDirection = GetComponent<Transform>().localScale.x;
-        if (isGrounded)
-            lastDirection = 0;
+        
     }
     void CheckGround()
     {

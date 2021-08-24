@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 9
   m_Name: FeetPos (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -225,7 +225,6 @@ MonoBehaviour:
   speed: 7
   dust: {fileID: 0}
   isGrounded: 0
-  fallMulti: 2.5
   feetPos1: {fileID: 4426260264074749560}
   feetPos2: {fileID: 4426260263358575963}
   nosePos: {fileID: 1431695242022060643}
@@ -240,6 +239,8 @@ MonoBehaviour:
   wallSlideSpeed: 0.3
   wallDistance: 0.5
   canWJ: 0
+  leftSide: {fileID: 0}
+  rightSide: {fileID: 0}
 --- !u!95 &4426260263428779522
 Animator:
   serializedVersion: 3
@@ -301,7 +302,7 @@ GameObject:
   m_Layer: 9
   m_Name: NosePos
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
